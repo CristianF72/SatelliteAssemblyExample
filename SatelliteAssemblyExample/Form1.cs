@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SatelliteAssemblyExample
 {
@@ -67,6 +68,50 @@ namespace SatelliteAssemblyExample
                 sLangCode = "ja";
                 ChangeCulture(sLangCode);
             }
+        }
+
+        void Fibonacci(int a, int b, int counter, int number)
+        {
+            Console.WriteLine(a);
+            if (counter < number) Fibonacci(b, a + b, counter + 1, number);
+        }
+
+
+        private void CalculateFibonacciButton(object sender, EventArgs e)
+        {
+            progressBar1.Maximum = 100;
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
+            backgroundWorker1.RunWorkerAsync(); // Start the BackgroundWorker.
+        }
+
+        //https://www.dotnetperls.com/backgroundworker
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            var backgroundWorker1 = sender as BackgroundWorker;
+
+            for (int j = 0; j < 100; j++)
+            {
+                Fibonacci(0, 1, 1, 1000);
+                Thread.Sleep(1000);
+
+                // Use progress to notify UI thread that progress has
+                // changed
+                backgroundWorker1.ReportProgress((j+1)*100 / 100);
+            }
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Change the value of the ProgressBar to the BackgroundWorker progress.
+            progressBar1.Value = e.ProgressPercentage;
+            // Set the text.
+            this.Text = e.ProgressPercentage.ToString();
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Console.WriteLine("Done!");
         }
     }
 }
