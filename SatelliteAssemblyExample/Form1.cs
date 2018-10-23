@@ -93,7 +93,7 @@ namespace SatelliteAssemblyExample
             for (int j = 0; j < 100; j++)
             {
                 Fibonacci(0, 1, 1, 1000);
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
 
                 // Use progress to notify UI thread that progress has
                 // changed
