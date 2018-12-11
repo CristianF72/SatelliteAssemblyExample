@@ -33,6 +33,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -54,10 +63,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="string.ru.Designer.cs">
+    <Compile Include="resources.en-US.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>string.ru.resx</DependentUpon>
+      <DependentUpon>resources.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="resources.fr-FR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resources.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="resources.it.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resources.it.resx</DependentUpon>
+    </Compile>
+    <Compile Include="resources.ja.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resources.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="resources.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>resources.ru.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -71,14 +100,27 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="string.ja.resx" />
-    <EmbeddedResource Include="string.ru.resx">
+    <EmbeddedResource Include="resources.ja.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>string.ru.Designer.cs</LastGenOutput>
+      <LastGenOutput>resources.ja.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="string.en-US.resx" />
-    <EmbeddedResource Include="string.fr-FR.resx" />
-    <EmbeddedResource Include="string.it.resx" />
+    <EmbeddedResource Include="resources.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resources.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resources.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources.fr-FR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resources.fr-FR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources.it.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>resources.it.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,6 +133,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Animated-Flag-USA.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flags_of_United-States.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_of_Japan.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_of_France.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_of_Italy.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_of_Russia.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\U.S.A.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\France.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\USA_240-animated-flag-gifs.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\France_180-animated-flag-gifs.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Japan_180-animated-flag-gifs.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Italy_180-animated-flag-gifs.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Russia_180-animated-flag-gifs.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usa-anthem.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

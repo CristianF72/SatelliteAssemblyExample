@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Media;
 using System.Reflection;
 using System.Text;
 using System.Threading;
@@ -17,7 +18,9 @@ namespace SatelliteAssemblyExample
     //https://www.codeproject.com/Articles/352105/Satellite-Assembly-Example-in-Csharp-Step-by-Step
     public partial class Form1 : Form
     {
-        readonly System.Resources.ResourceManager _resourceManager = new System.Resources.ResourceManager("SatelliteAssemblyExample.string", Assembly.GetExecutingAssembly());
+        private readonly System.Resources.ResourceManager _resourceManager = 
+            new System.Resources.ResourceManager("SatelliteAssemblyExample.resources", 
+                                                Assembly.GetExecutingAssembly());
         public Form1()
         {
             InitializeComponent();
@@ -28,19 +31,24 @@ namespace SatelliteAssemblyExample
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(sLangCode);
             Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(sLangCode);
             lblMultiLangResult.Text = _resourceManager.GetString("lblResult");
+            lblMultiLangResultImage.Image = (System.Drawing.Image)_resourceManager.GetObject("flag");
+            //var sound = (System.Media.SoundPlayer)_resourceManager.GetObject("anthem");
+            //System.Media.SoundPlayer player = new System.Media.SoundPlayer();
+            //player.Play();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            cmbLanguage.Items.Add("Ingliș");
+            cmbLanguage.Items.Add("Ingliș(iues)");
             cmbLanguage.Items.Add("Franțuzăște");
             cmbLanguage.Items.Add("Hitaliană");
             cmbLanguage.Items.Add("Rusăște");
             cmbLanguage.Items.Add("Iapaneză");
+            cmbLanguage.SelectedIndex = 0;
             ChangeCulture("en-US");
         }
 
-        private void cmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbLanguage_SelectedIndexChanged(object sender, EventArgs e)
         {
             string sLangCode;
             if (cmbLanguage.SelectedIndex == 0)
@@ -111,7 +119,7 @@ namespace SatelliteAssemblyExample
 
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Console.WriteLine("Done!");
+            this.Text = "Done!";
         }
     }
 }
